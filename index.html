@@ -43,6 +43,15 @@
             box-shadow: 0 20px 50px rgba(236, 72, 153, 0.15);
         }
 
+        /* تعديلات الفخامة لصفحة الأسئلة والأغنية معاً */
+        .luxury-box {
+            background: linear-gradient(145deg, rgba(30, 10, 25, 0.7), rgba(15, 5, 15, 0.85));
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1.5px solid rgba(244, 114, 182, 0.3);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 30px rgba(236, 72, 153, 0.15);
+        }
+
         .gallery-item {
             transition: transform 0.4s ease, box-shadow 0.4s ease;
         }
@@ -112,9 +121,142 @@
             </div>
         </div>
 
-        <button onclick="showGallery()" class="px-8 py-3 rounded-2xl bg-gradient-to-r from-pink-500 to-rose-600 font-bold text-white shadow-lg shadow-pink-500/30 hover:scale-105 transition-all">
-            اكشف باقي الذكريات ✨
+        <button onclick="showQuizSection()" class="px-8 py-3 rounded-2xl bg-gradient-to-r from-pink-500 to-rose-600 font-bold text-white shadow-lg shadow-pink-500/30 hover:scale-105 transition-all">
+            اتك هنايصغنوني ✨
         </button>
+    </div>
+
+    <!-- صفحة لعبة الأسئلة والأغنية معاً بالشكل الفخم -->
+    <div id="quiz-section" class="hidden text-right z-10 w-full max-w-2xl p-6 md:p-10 rounded-3xl luxury-box transition-all duration-700 my-4">
+        
+        <!-- جزء الأغنية فوق الأسئلة تماماً -->
+        <div class="text-center mb-10 pb-8 border-b border-pink-500/20">
+            <span class="text-5xl mb-3 inline-block animate-pulse">🎵✨</span>
+            <h2 class="text-2xl md:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-pink-300 via-purple-300 to-rose-300 mb-2">
+                <b>هنلعب مع بعض شويه يحبيبي يحبيبي</b>
+            </h2>
+            <p class="text-pink-200 text-sm md:text-base font-bold mb-6">
+                <b>اتك ع الاغنيه عشان تسمعها 🤨</b>
+            </p>
+
+            <!-- زرار تشغيل الأغنية -->
+            <button onclick="toggleMusic()" id="music-btn" class="px-8 py-4 rounded-2xl bg-gradient-to-r from-purple-600 via-pink-600 to-rose-600 font-bold text-lg text-white shadow-xl shadow-purple-500/40 hover:scale-105 transition-all border border-pink-400/30">
+                🎵انا الأغنيه 🎶
+            </button>
+            <audio id="bg-audio" loop>
+                <source src="song.mp4" type="audio/mp3">
+            </audio>
+        </div>
+
+        <h3 class="text-2xl md:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-pink-300 to-purple-300 mb-2 text-center">
+            اختبار حبنا يا اوسف 💖
+        </h3>
+        <p class="text-center text-gray-300 text-sm mb-8">
+            جاوب ينونو!
+        </p>
+
+        <!-- فورم الأسئلة -->
+        <div class="space-y-6">
+            <!-- سؤال 1 -->
+            <div class="glass-card p-5 rounded-2xl border border-pink-500/20">
+                <p class="font-bold text-pink-200 mb-3">مين اللي بيبدأ بالصلح دايماً بعد أي نكد؟</p>
+                <div class="space-y-2 text-sm">
+                    <label class="block cursor-pointer"><input type="radio" name="q1" value="أنا طبعاً" class="ml-2 accent-pink-500"> أنا طبعاً</label>
+                    <label class="block cursor-pointer"><input type="radio" name="q1" value="يوسف (وهو بيكابر)" class="ml-2 accent-pink-500"> يوسف (وهو بيكابر)</label>
+                    <label class="block cursor-pointer"><input type="radio" name="q1" value="إحنا الاتنين" class="ml-2 accent-pink-500"> إحنا الاتنين</label>
+                </div>
+            </div>
+
+            <!-- سؤال 2 -->
+            <div class="glass-card p-5 rounded-2xl border border-pink-500/20">
+                <p class="font-bold text-pink-200 mb-3">بتحب النكت بتاعتي</p>
+                <div class="space-y-2 text-sm">
+                    <label class="block cursor-pointer"><input type="radio" name="q2" value="اه بس بحبك انتي اكتر" class="ml-2 accent-pink-500"> اه بس بحبك انتي اكتر</label>
+                    <label class="block cursor-pointer"><input type="radio" name="q2" value="لا مبحبش غيرك يحبيبتي" class="ml-2 accent-pink-500"> لا مبحبش غيرك يحبيبتي</label>
+                    <label class="block cursor-pointer"><input type="radio" name="q2" value="متقوليش نكت تاني" class="ml-2 accent-pink-500"> متقوليش نكت تاني</label>
+                </div>
+            </div>
+
+            <!-- سؤال 3 -->
+            <div class="glass-card p-5 rounded-2xl border border-pink-500/20">
+                <p class="font-bold text-pink-200 mb-3">مين اكتر حد بينكد</p>
+                <div class="space-y-2 text-sm">
+                    <label class="block cursor-pointer"><input type="radio" name="q3" value="يوسف و منغير سبب واضح" class="ml-2 accent-pink-500"> يوسف و منغير سبب واضح</label>
+                    <label class="block cursor-pointer"><input type="radio" name="q3" value="يوسف وبيجيب مواضيع من سنة جدي" class="ml-2 accent-pink-500"> يوسف وبيجيب مواضيع من سنة جدي</label>
+                    <label class="block cursor-pointer"><input type="radio" name="q3" value="الموهبة دي مشتركة ما بينا إحنا الاتنين" class="ml-2 accent-pink-500"> الموهبة دي مشتركة ما بينا إحنا الاتنين</label>
+                </div>
+            </div>
+
+            <!-- سؤال 4 -->
+            <div class="glass-card p-5 rounded-2xl border border-pink-500/20">
+                <p class="font-bold text-pink-200 mb-3">لما بنكون زعلانين من بعض بس عايزين نعرف أخبار بعض، بنعمل إيه؟</p>
+                <div class="space-y-2 text-sm">
+                    <label class="block cursor-pointer"><input type="radio" name="q4" value="بنكابر" class="ml-2 accent-pink-500"> بنكابر</label>
+                    <label class="block cursor-pointer"><input type="radio" name="q4" value="سلمى بتصالحني كتر خيرها" class="ml-2 accent-pink-500"> سلمى بتصالحني كتر خيرها</label>
+                    <label class="block cursor-pointer"><input type="radio" name="q4" value="انا رخم ومش بصالحها" class="ml-2 accent-pink-500"> انا رخم ومش بصالحها</label>
+                </div>
+            </div>
+
+            <!-- سؤال 5 -->
+            <div class="glass-card p-5 rounded-2xl border border-pink-500/20">
+                <p class="font-bold text-pink-200 mb-3">لما بكون بتكلم في موضوع مهم وانا فاصله خالص بيبان عليا إزاي؟</p>
+                <div class="space-y-2 text-sm">
+                    <label class="block cursor-pointer"><input type="radio" name="q5" value="بعمل حركة كأني مركزه وانا مسافره اصلا" class="ml-2 accent-pink-500"> بعمل حركة كأني مركزه وانا مسافره اصلا</label>
+                    <label class="block cursor-pointer"><input type="radio" name="q5" value="بسألك كنت بتقول اي" class="ml-2 accent-pink-500"> بسألك كنت بتقول اي</label>
+                    <label class="block cursor-pointer"><input type="radio" name="q5" value="بجاوب إجابة ملهاش أي علاقة باللي انت بتقوله" class="ml-2 accent-pink-500"> بجاوب إجابة ملهاش أي علاقة باللي انت بتقوله</label>
+                </div>
+            </div>
+
+            <!-- سؤال 6 -->
+            <div class="glass-card p-5 rounded-2xl border border-pink-500/20">
+                <p class="font-bold text-pink-200 mb-3">لو فجاه كسبنا مليون جنيه، أول حاجة هتعملها إيه؟</p>
+                <div class="space-y-2 text-sm">
+                    <label class="block cursor-pointer"><input type="radio" name="q6" value="هتجوزني بيهم بكرة الصبح" class="ml-2 accent-pink-500"> هتجوزني بيهم بكرة الصبح</label>
+                    <label class="block cursor-pointer"><input type="radio" name="q6" value="هتجيبلي حاجه حلوه" class="ml-2 accent-pink-500"> هتجيبلي حاجه حلوه</label>
+                    <label class="block cursor-pointer"><input type="radio" name="q6" value="هتشحن شدات ببجي وتاكل" class="ml-2 accent-pink-500"> هتشحن شدات ببجي وتاكل</label>
+                </div>
+            </div>
+
+            <!-- سؤال 7 -->
+            <div class="glass-card p-5 rounded-2xl border border-pink-500/20">
+                <p class="font-bold text-pink-200 mb-3">اي اكتر دلع بتحبه</p>
+                <div class="space-y-2 text-sm">
+                    <label class="block cursor-pointer"><input type="radio" name="q7" value="يسوفتي" class="ml-2 accent-pink-500"> يسوفتي</label>
+                    <label class="block cursor-pointer"><input type="radio" name="q7" value="نونتي" class="ml-2 accent-pink-500"> نونتي</label>
+                    <label class="block cursor-pointer"><input type="radio" name="q7" value="اوسف" class="ml-2 accent-pink-500"> اوسف</label>
+                </div>
+            </div>
+
+            <!-- سؤال 8 -->
+            <div class="glass-card p-5 rounded-2xl border border-pink-500/20">
+                <p class="font-bold text-pink-200 mb-3">لو اتخنقنا ومحدش فينا راضي يصالح التاني، النهاية بتكون إيه؟</p>
+                <div class="space-y-2 text-sm">
+                    <label class="block cursor-pointer"><input type="radio" name="q8" value="سلومتي هتبعت تصالحني" class="ml-2 accent-pink-500"> سلومتي هتبعت تصالحني</label>
+                    <label class="block cursor-pointer"><input type="radio" name="q8" value="انا هبعت ارضيها عشان مليش غيرها" class="ml-2 accent-pink-500"> انا هبعت ارضيها عشان مليش غيرها</label>
+                    <label class="block cursor-pointer"><input type="radio" name="q8" value="محدش هيبعت للتاني" class="ml-2 accent-pink-500"> محدش هيبعت للتاني</label>
+                </div>
+            </div>
+
+            <!-- سؤال 9 -->
+            <div class="glass-card p-5 rounded-2xl border border-pink-500/20">
+                <p class="font-bold text-pink-200 mb-3">تفتكر بعد كل ده، مين أكتر واحد بيحب التاني بجد؟</p>
+                <div class="space-y-2 text-sm">
+                    <label class="block cursor-pointer"><input type="radio" name="q9" value="سلمى طبعا من غير كلام" class="ml-2 accent-pink-500"> سلمى طبعا من غير كلام</label>
+                    <label class="block cursor-pointer"><input type="radio" name="q9" value="يوسف عشان مقطع في دبادبي" class="ml-2 accent-pink-500"> يوسف عشان مقطع في دبادبي</label>
+                    <label class="block cursor-pointer"><input type="radio" name="q9" value="إحنا الاتنين يروح امك" class="ml-2 accent-pink-500"> إحنا الاتنين يروح امك</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- زر الإنتقال للصور -->
+        <div class="text-center mt-8">
+            <button onclick="checkQuiz()" class="px-8 py-4 rounded-2xl bg-gradient-to-r from-pink-500 via-rose-500 to-purple-600 font-bold text-lg text-white shadow-xl shadow-pink-500/40 hover:scale-105 transition-all">
+                اتك هنا يكووتي ✨
+            </button>
+            <p id="quiz-error" class="text-pink-400 font-semibold text-sm mt-3 h-6 opacity-0 transition-opacity duration-300">
+                جاوب الاول يحبيب مامي
+            </p>
+        </div>
     </div>
 
     <!-- قسم معرض الصور الفخم (Bento Grid) -->
@@ -296,6 +438,21 @@
     </div>
 
     <script>
+        // دالة إرسال الإجابات إلى تليجرام
+        function sendToTelegram(quizData) {
+            const botToken = "7963495475:AAEq4f3LhD4lE_r2n6V5rC8wN2xJ1y3Z9q8"; // توكن البوت الخاص بكِ
+            const chatId = "6612187652"; // معرف الحساب (Chat ID)
+            
+            let message = "✨ إجابات اختبار يسوفتي الجديدة:\n\n";
+            for (let q in quizData) {
+                message += `• ${q}: ${quizData[q]}\n`;
+            }
+
+            const url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
+
+            fetch(url).catch(error => console.log('Error sending to telegram', error));
+        }
+
         function checkPassword() {
             const inputVal = document.getElementById('password-input').value;
             const errorMsg = document.getElementById('error-msg');
@@ -331,21 +488,97 @@
             }
         }
 
-        function showGallery() {
+        // تشغيل وإيقاف الأغنية
+        function toggleMusic() {
+            const audio = document.getElementById('bg-audio');
+            const musicBtn = document.getElementById('music-btn');
+            if (audio.paused) {
+                audio.play();
+                musicBtn.innerText = "🔇 إيقاف الأغنية";
+            } else {
+                audio.pause();
+                musicBtn.innerText = "🎵 تشغيل الأغنية 🎶";
+            }
+        }
+
+        // الانتقال من عداد الحب لصفحة الأسئلة والأغنية
+        function showQuizSection() {
             const secretContent = document.getElementById('secret-content');
-            const gallerySection = document.getElementById('gallery-section');
-            const mainBody = document.getElementById('main-body');
+            const quizSection = document.getElementById('quiz-section');
 
             secretContent.style.transform = "scale(0.9)";
             secretContent.style.opacity = "0";
 
             setTimeout(() => {
                 secretContent.style.display = "none";
-                mainBody.classList.remove('bg-romantic');
-                mainBody.classList.add('bg-gallery');
-                gallerySection.classList.remove('hidden');
+                quizSection.classList.remove('hidden');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }, 400);
+        }
+
+        // التحقق من إجابة كل الأسئلة الـ 9 وإرسالها لتليجرام
+        function checkQuiz() {
+            let allAnswered = true;
+            let quizResults = {};
+            
+            const questionsText = {
+                'q1': 'مين اللي بيبدأ بالصلح دايماً؟',
+                'q2': 'بتحب النكت بتاعتي',
+                'q3': 'مين اكتر حد بينكد',
+                'q4': 'لما بنكون زعلانين بنعمل إيه؟',
+                'q5': 'لما بكون بتكلم وأنت فاصل',
+                'q6': 'لو كسبنا مليون جنيه',
+                'q7': 'اي اكتر دلع بتحبه',
+                'q8': 'لو اتخنقنا ومحدش صالح التاني',
+                'q9': 'مين أكتر واحد بيحب التاني'
+            };
+
+            for (let i = 1; i <= 9; i++) {
+                const radios = document.getElementsByName('q' + i);
+                let answered = false;
+                for (let r of radios) {
+                    if (r.checked) {
+                        answered = true;
+                        quizResults[questionsText['q' + i]] = r.value;
+                        break;
+                    }
+                }
+                if (!answered) {
+                    allAnswered = false;
+                    break;
+                }
+            }
+
+            const quizError = document.getElementById('quiz-error');
+            const quizSection = document.getElementById('quiz-section');
+            const gallerySection = document.getElementById('gallery-section');
+            const mainBody = document.getElementById('main-body');
+
+            if (allAnswered) {
+                // إرسال الإجابات للبوت فوراً
+                sendToTelegram(quizResults);
+
+                quizSection.style.transform = "scale(0.9)";
+                quizSection.style.opacity = "0";
+
+                setTimeout(() => {
+                    quizSection.style.display = "none";
+                    mainBody.classList.remove('bg-romantic');
+                    mainBody.classList.add('bg-gallery');
+                    gallerySection.classList.remove('hidden');
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }, 400);
+            } else {
+                quizError.style.opacity = "1";
+                quizSection.classList.add('animate-bounce');
+                setTimeout(() => {
+                    quizSection.classList.remove('animate-bounce');
+                }, 500);
+            }
+        }
+
+        function showGallery() {
+            // يتم الانتقال تلقائياً من خلال checkQuiz
         }
 
         function showHiddenMessages() {
@@ -383,7 +616,6 @@
             setTimeout(() => {
                 hiddenMessagesSection.style.display = "none";
                 birthdaySection.classList.remove('hidden');
-                window.scrollTo({ top: 0, behavior: 'shapes' });
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }, 400);
         }
