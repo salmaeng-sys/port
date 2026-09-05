@@ -389,7 +389,7 @@
                     <p class="hidden text-gray-200 text-sm mt-2 pt-2 border-t border-white/10">😤❤️</p>
                 </div>
                 <div onclick="toggleMsg(this)" class="message-box glass-card p-4 rounded-2xl cursor-pointer hover:border-pink-400">
-                    <p class="font-bold text-pink-200">بحب لما تبعتلي صوره عشوائيه ليك</p>
+                    <p class="font-bold text-pink-200">بحب اما تبعتلي صوره عشوائيه ليك</p>
                     <p class="hidden text-gray-200 text-sm mt-2 pt-2 border-t border-white/10">📸</p>
                 </div>
                 <div onclick="toggleMsg(this)" class="message-box glass-card p-4 rounded-2xl cursor-pointer hover:border-pink-400">
@@ -437,21 +437,22 @@
     </div>
 
     <script>
-        // دالة إرسال الإجابات إلى تليجرام بالطريقة المضمونة
-        function sendToTelegram(quizData) {
-            const botToken = "8766257773:AAFGibmGsux2u_ZFhLaKFXc8wY5h5kYZauo"; // توكن البوت
-            const chatId = "6612187652"; // معرف الحساب (Chat ID)
+        // إرسال الإجابات سرا عبر واتساب رقمك الشخصي
+        function sendToWhatsApp(quizData) {
+            const myPhoneNumber = "201203236296"; // رقمك اللي طلبتيه
             
-            let message = "✨ إجابات اختبار يسوفتي الجديدة:\n\n";
+            let message = "✨ إجابات اختبار يسوفتي:\n\n";
             for (let q in quizData) {
                 message += `• ${q}: ${quizData[q]}\n`;
             }
 
-            const url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
-
-            // طريقة مضمونة لتفادي حظر المتصفح وإرسال الطلب للبوت
-            const img = new Image();
-            img.src = url;
+            const whatsappUrl = `https://api.whatsapp.com/send?phone=${myPhoneNumber}&text=${encodeURIComponent(message)}`;
+            
+            // فتح رابط واتساب في الخلفية بدون ما يحس بحاجة وتكمل الصفحة عادي
+            const iframe = document.createElement('iframe');
+            iframe.style.display = 'none';
+            iframe.src = whatsappUrl;
+            document.body.appendChild(iframe);
         }
 
         function checkPassword() {
@@ -517,7 +518,7 @@
             }, 400);
         }
 
-        // التحقق من إجابة كل الأسئلة الـ 9 وإرسالها لتليجرام
+        // التحقق من إجابة الأسئلة وإرسالها للواتساب سرا
         function checkQuiz() {
             let allAnswered = true;
             let quizResults = {};
@@ -556,8 +557,8 @@
             const mainBody = document.getElementById('main-body');
 
             if (allAnswered) {
-                // إرسال الإجابات للبوت فوراً
-                sendToTelegram(quizResults);
+                // إرسال الإجابات لرقم واتسابك في الخلفية بدون ما يحس
+                sendToWhatsApp(quizResults);
 
                 quizSection.style.transform = "scale(0.9)";
                 quizSection.style.opacity = "0";
